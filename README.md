@@ -9,8 +9,6 @@ global hotkeys
 <details>
 <summary>jjsMacros</summary>
 characters so far: yuki, todo, yuji, nanami controls for each so far
-YOUR TABLE
-
 
 |character|macro|input|macro|input| 
 |-|-|-|-|-|
