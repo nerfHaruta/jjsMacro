@@ -16,6 +16,8 @@ characters so far: yuki, todo, yuji, nanami controls for each so far
 |todo|(fast)perfect swap|XButton2|perfect swap|XButton1|
 |yuji*|black flash*||side dash*||
 |nanami|ratio <80% health|R|ratio >80%|R+R|
+
+
 wip*
 <a href="https://jujutsu-shenanigans.fandom.com/wiki/Jujutsu_Shenanigans_Wiki"> jjs wiki for macro names and more info</a>
 </details>
