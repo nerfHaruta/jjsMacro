@@ -1,4 +1,6 @@
-﻿global chars := Map("0x000000", "yuki", "0xABE3FF", "todo", "0xAB0000", "yuji", "0x629FAA", "nanami") ;character array
+﻿#Requires AutoHotkey v2.0
+
+global chars := Map("0x000000", "yuki", "0xABE3FF", "todo", "0xAB0000", "yuji", "0x629FAA", "nanami", "0xABE3FF", "mahoraga") ;character array
 chars.Default := "none" ;no character
 global charID := chars.Default
 
@@ -94,13 +96,14 @@ XButton2::
 
 XButton1::
 {
-   swap(500,105) 
+   swap(550,70) 
     while GetKeyState("XButton1", "P") {
-        swap(500,105)  
+        swap(550,70)  
     }
 }
 
 swap(swapTime, swapSpeed){
+    Sleep swapSpeed
     Send "r"
     Sleep swapTime
     Send "{Blind}{Click}"
@@ -131,6 +134,14 @@ ratioMacro(ThisHotkey) {
     }
 }
 Sleep 300
+
+#HotIf checkChar("mahoraga")
+3::
+{
+Send "{3 down}"
+Sleep 800
+Send "{3 up}"
+}
 
 #HotIf checkChar("yuji")
 ; + auto black flash
