@@ -1,4 +1,4 @@
-This macro uses AutoHotkey which simply simulates keystrokes/mouse keystrokes. It doesn't inject code into Roblox or modify the game. However: Roblox can update its anti-macro policies at any time Use at your own risk I recommend using it mainly to practice timing on private servers.
+This macro uses AutoHotkey which simply simulates keystrokes/mouse keystrokes. It doesn't inject code into Roblox or modify the game. Does not mess with/read memory in any way. However: Roblox can update its anti-macro policies at any time Use at your own risk I recommend using it mainly to practice timing on private servers.
 
 
 global hotkeys
