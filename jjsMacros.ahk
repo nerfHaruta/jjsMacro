@@ -1,25 +1,39 @@
 ﻿#Requires AutoHotkey v2.0
 
-global chars := Map("0x000000", "yuki", "0xABE3FF", "todo", "0xAB0000", "yuji", "0x629FAA", "nanami", "0xABE3FF", "mahoraga") ;character array
-chars.Default := "none" ;no character
-global charID := chars.Default
+charID := "none"
+chars := ["yuki", "todo", "yuji", "nanami", "mahoraga"]
 
-setChar()
+guido := Gui("","")
+guido.BackColor := "Black"
+charText := guido.Add("Text", "cWhite r2 x+20 y10", "current char: " charID)
 
-setChar() ;set character
-{
-    global charID
-    charID := chars[PixelGetColor(1000, 990)]
+charSelect := guido.AddDropDownList("x15 y+5", chars)
+
+submit := guido.Add("Button", " cWhite x50 y+10", "Submit")
+submit.onEvent("Click", (*) => saveChar())
+guido.Show("w150")
+
+saveChar() {
+    global charID := charSelect.Text
+    if(charID = ""){
+        charID := "none"
+    }
+    charText.Text := "current char: " charID
     SoundPlay A_Desktop "\scripts\jjsSounds\" charID ".wav"
-    Sleep 3000
-    
+    Sleep(200)
+    guido.Hide()
 }
 
 checkChar(charRead) {
     return charRead = charID
 }
 
-z:: setChar()
+z:: {
+    if WinExist("ahk_id " guido.Hwnd)
+        guido.Hide()
+    else
+        guido.Show()
+}
 
 #z::
 {
@@ -88,21 +102,21 @@ XButton1::
 #HotIf checkChar("todo")
 XButton2::
 {
-    swap(280,100) 
+    swap(280, 100)
     while GetKeyState("XButton2", "P") {
-        swap(280,100)  
+        swap(280, 100)
     }
 }
 
 XButton1::
 {
-   swap(550,70) 
+    swap(550, 70)
     while GetKeyState("XButton1", "P") {
-        swap(550,70)  
+        swap(550, 70)
     }
 }
 
-swap(swapTime, swapSpeed){
+swap(swapTime, swapSpeed) {
     Sleep swapSpeed
     Send "r"
     Sleep swapTime
@@ -138,9 +152,9 @@ Sleep 300
 #HotIf checkChar("mahoraga")
 3::
 {
-Send "{3 down}"
-Sleep 800
-Send "{3 up}"
+    Send "{3 down}"
+    Sleep 800
+    Send "{3 up}"
 }
 
 #HotIf checkChar("yuji")
